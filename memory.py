@@ -67,6 +67,11 @@ def draw():
         if hide[count]:
             x, y = xy(count)
             square(x, y)
+        else:
+            if hide[count]:
+                x, y = xy(0)
+                square(x, y)
+                print("Termino Juego!!!");
 
     mark = state['mark']
 
@@ -75,7 +80,7 @@ def draw():
         up()
         goto(x + 2, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial',30,'normal'))
 
     update()
     ontimer(draw, 100)
