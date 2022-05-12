@@ -18,6 +18,7 @@ car = path('car.gif')
 tiles = list(map(chr, range(91, 123))) * 2
 state = {'mark': None}
 hide = [True] * 64
+revealed = 0
 
 
 def square(x, y):
@@ -45,6 +46,7 @@ def xy(count):
 
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
+    global revealed
     spot = index(x, y)
     mark = state['mark']
 
@@ -54,6 +56,9 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        revealed += 1
+        if revealed == 32:
+            write('Game over!', move= False, font=('Arial', 30, 'normal'))
 
 
 def draw():
