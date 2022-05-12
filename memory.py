@@ -78,7 +78,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 15, y + 5)
         color('black')
         write(tiles[mark], font=('Arial',30,'normal'))
 
